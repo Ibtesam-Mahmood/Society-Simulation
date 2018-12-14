@@ -8,8 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Simulation extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture img;
-	
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -17,11 +16,20 @@ public class Simulation extends ApplicationAdapter {
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		update();
+
+		Gdx.gl.glClearColor(43/255f, 168/255f, 74/255f, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 
+
+
 		batch.end();
+	}
+
+	//Allows the processing of the object to occur before the rendering
+	public void update(){
+
 	}
 	
 	@Override
