@@ -1,5 +1,6 @@
 package com.ibteisaih.society;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.graphics.Texture;
 
@@ -28,4 +29,10 @@ public abstract class GameActor extends Actor {
         return getY() + getHeight()/2;
     }
 
+    public abstract void render(Batch batch, float parentAlpha);
+
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        render(batch, parentAlpha);
+    }
 }
