@@ -35,4 +35,6 @@ public abstract class GameActor extends Actor {
     public void draw(Batch batch, float parentAlpha) {
         render(batch, parentAlpha);
     }
+
+    public abstract void update(float delta);
 }
