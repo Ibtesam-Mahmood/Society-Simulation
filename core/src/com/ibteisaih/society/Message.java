@@ -1,10 +1,10 @@
 package com.ibteisaih.society;
 
 import com.badlogic.gdx.math.Vector2;
-import com.ibteisaih.society.actors.GameObject;
+import com.ibteisaih.society.actors.DynamicActor;
 
 public class Message {
     Vector2 moveTo;
-    GameObject collect;
-    GameObject destroy;
+    DynamicActor collect;
+    DynamicActor destroy;
 }

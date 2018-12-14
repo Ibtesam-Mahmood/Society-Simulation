@@ -1,13 +1,25 @@
-package com.ibteisaih.society;
+package com.ibteisaih.society.actors;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 
-public abstract class GameActor extends Actor {
+public abstract class BaseActor extends Actor {
+
+    enum ActorType{
+        DYNAMIC, STATIC
+    }
 
     //Base Game Actor + texture model
     protected Texture texture;
+
+    //The type of the actor
+    protected ActorType type;
+
+    public BaseActor(){
+        type = ActorType.STATIC;
+    }
 
     public void dispose(){
         texture.dispose();

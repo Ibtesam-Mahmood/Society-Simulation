@@ -1,9 +1,8 @@
-package com.ibteisaih.society.actors;
+package com.ibteisaih.society.actors.models;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.math.Vector2;
-import com.ibteisaih.society.GameActor;
+import com.ibteisaih.society.actors.DynamicActor;
 
-public class Person extends GameObject {
+public class Person extends DynamicActor {
     @Override
     public void render(Batch batch, float parentAlpha) {
 

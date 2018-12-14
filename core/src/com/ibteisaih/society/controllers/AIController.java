@@ -1,26 +1,26 @@
 package com.ibteisaih.society.controllers;
 
-import com.ibteisaih.society.GameActor;
-import com.ibteisaih.society.actors.GameObject;
+import com.ibteisaih.society.actors.BaseActor;
+import com.ibteisaih.society.actors.DynamicActor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AIController {
 
-    ArrayList<GameObject> control; //objects that the AI controls
-    ArrayList<GameActor> noncontrol; //objects that the player controls
+    ArrayList<DynamicActor> control; //objects that the AI controls
+    ArrayList<BaseActor> noncontrol; //objects that the player controls
 
-    public AIController(List<GameObject> control, List<GameActor> noncontrol){
-        this.control = new ArrayList<GameObject>();
-        this.noncontrol = new ArrayList<GameActor>();
+    public AIController(List<DynamicActor> control, List<BaseActor> noncontrol){
+        this.control = new ArrayList<DynamicActor>();
+        this.noncontrol = new ArrayList<BaseActor>();
 
         this.control.addAll(control);
         this.noncontrol.addAll(noncontrol);
     }
 
-    public static List<GameObject> defaultStart(){
-        List<GameObject> defualt = new ArrayList<GameObject>();
+    public static List<DynamicActor> defaultStart(){
+        List<DynamicActor> defualt = new ArrayList<DynamicActor>();
 
         //list of all the basic things a AI starts with
 
