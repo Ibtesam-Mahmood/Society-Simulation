@@ -17,8 +17,10 @@ public abstract class BaseActor extends Actor {
     //The type of the actor
     protected ActorType type;
 
-    public BaseActor(){
+    public BaseActor(float x, float y){
         type = ActorType.STATIC;
+        setCenterX(x);
+        setCenterY(y);
     }
 
     public void dispose(){
@@ -43,10 +45,15 @@ public abstract class BaseActor extends Actor {
 
     public abstract void render(Batch batch, float parentAlpha);
 
+
+    //renders the actor
     @Override
     public void draw(Batch batch, float parentAlpha) {
         render(batch, parentAlpha);
     }
 
+    //updates the actor over time
     public abstract void update(float delta);
+
+
 }
