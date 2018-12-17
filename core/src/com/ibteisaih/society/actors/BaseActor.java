@@ -3,11 +3,11 @@ package com.ibteisaih.society.actors;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.compression.lzma.Base;
+import com.ibteisaih.society.actors.models.Model;
 
 public abstract class BaseActor extends Actor {
 
-    enum ActorType{
+    public enum ActorType{
         DYNAMIC, STATIC
     }
 
@@ -16,6 +16,9 @@ public abstract class BaseActor extends Actor {
 
     //The type of the actor
     protected ActorType type;
+
+    //The tyoe of the model
+    protected Model model;
 
     public BaseActor(float x, float y){
         type = ActorType.STATIC;
@@ -43,6 +46,14 @@ public abstract class BaseActor extends Actor {
         return getY() + getHeight()/2;
     }
 
+    public Model getModel() {
+        return model;
+    }
+
+    public ActorType getType() {
+        return type;
+    }
+
     public abstract void render(Batch batch, float parentAlpha);
 
 
@@ -55,5 +66,9 @@ public abstract class BaseActor extends Actor {
     //updates the actor over time
     public abstract void update(float delta);
 
+
+    public float getDeltaDistance(float x, float y, float x1, float y1){
+        return (float) Math.sqrt( Math.pow(x-x1, 2) + Math.pow(y-y1, 2) );
+    }
 
 }

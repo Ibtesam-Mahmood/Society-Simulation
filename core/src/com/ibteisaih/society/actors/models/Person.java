@@ -11,18 +11,17 @@ public class Person extends DynamicActor {
     public Person(float x, float y){
         super(x, y);
         shapeRenderer = new ShapeRenderer();
+        model = Model.PERSON;
 
     }
 
     @Override
     public void render(Batch batch, float parentAlpha) {
-        batch.end();
         shapeRenderer.setProjectionMatrix(batch.getProjectionMatrix());
         shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         shapeRenderer.setColor(Color.RED);
-        shapeRenderer.rect(getCenterX(), getCenterY(), 50, 50);
+        shapeRenderer.rect(getCenterX(), getCenterY(), 5, 5);
         shapeRenderer.end();
-        batch.begin();
     }
 
     @Override
