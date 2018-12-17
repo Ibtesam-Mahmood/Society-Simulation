@@ -11,24 +11,31 @@ public class World extends Stage {
     ArrayList<AIController> societies; //list of all AIs
 
     public static ArrayList<BaseActor> ENTITIES; //all entities in the world
+    public static ArrayList<BaseActor> NEXTENTITIES; //all entities in the world
+
+
 
     public World(){
         societies = new ArrayList<AIController>();
         ENTITIES = new ArrayList<BaseActor>();
-
+        NEXTENTITIES = new ArrayList<BaseActor>();
+        
         societies.add(new AIController(null));
+        
+        
     }
 
     //Adds an entity to the list of all entities
     public static void addEntity(BaseActor actor){
-        if(actor != null)
-            ENTITIES.add(actor);
+        if(actor != null) {
+            NEXTENTITIES.add(actor);
+        }
     }
 
     //Removes an entity from the list of all entities
-    public static void removeEntitiy(BaseActor actor){
+    public static void removeEntity(BaseActor actor){
         if(actor != null)
-            ENTITIES.remove(actor);
+            NEXTENTITIES.remove(actor);
     }
 
     @Override
@@ -37,6 +44,9 @@ public class World extends Stage {
         for(BaseActor actors : ENTITIES){
             actors.draw(getBatch(), 1.0f);
         }
+        //update entity list
+        
+
     }
 
     @Override
@@ -47,6 +57,10 @@ public class World extends Stage {
         }
         for(BaseActor actors : ENTITIES){
             actors.update(delta);
+        }
+
+        if(ENTITIES.size() != (ENTITIES.size() + NEXTENTITIES.size())) {
+            ENTITIES.addAll(NEXTENTITIES);
         }
     }
 

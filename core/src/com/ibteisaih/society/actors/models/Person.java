@@ -24,8 +24,11 @@ public class Person extends DynamicActor {
         shapeRenderer.end();
     }
 
+    int count = 0;
     @Override
     public void update(float delta) {
-
+            count++;
+            if(count % 50 == 0)
+                baseActorManager.addEntitiy(new Person((float) Math.random() * 1000, (float) Math.random() * 1000));
     }
 }

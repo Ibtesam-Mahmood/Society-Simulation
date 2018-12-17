@@ -21,7 +21,7 @@ public class AIController {
         if(control != null)
             this.control.addAll(control);
 
-        World.ENTITIES.addAll(this.control);
+        World.NEXTENTITIES.addAll(this.control);
 
         manageBaseActors = createActorManager();
     }
@@ -40,7 +40,10 @@ public class AIController {
 
     //allows the AI to perform Actions
     public void update(float dt){
-        
+        count++;
+        if(count == 1){
+            manageBaseActors.addEntitiy(new Person((float) Math.random() * 100, (float) Math.random() * 100));
+        }
     }
 
 
@@ -62,7 +65,7 @@ public class AIController {
             public void removeEntitiy(BaseActor actor) {
                 if(actor != null){
                     control.remove(actor);
-                    World.removeEntitiy(actor);
+                    World.removeEntity(actor);
                 }
             }
 
