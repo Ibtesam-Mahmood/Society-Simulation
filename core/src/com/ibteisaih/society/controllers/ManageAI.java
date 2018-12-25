@@ -5,7 +5,7 @@ import com.ibteisaih.society.actors.models.Model;
 
 import java.util.List;
 
-public interface ManageBaseActors {
+public interface ManageAI {
 
     void addEntitiy(BaseActor actor); //allows the adding of an actor
     void removeEntitiy(BaseActor actor); //allows the removing of an actor

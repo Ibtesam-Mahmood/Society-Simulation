@@ -27,8 +27,8 @@ public class Person extends DynamicActor {
     int count = 0;
     @Override
     public void update(float delta) {
-            count++;
-            if(count % 50 == 0)
-                baseActorManager.addEntitiy(new Person((float) Math.random() * 1000, (float) Math.random() * 1000));
+        count++;
+        if(count % 100 == 0)
+            AIResponder.addEntitiy(new Person((float) Math.random() * 1000, (float) Math.random() * 1000));
     }
 }
